@@ -1,0 +1,92 @@
+.form-container {
+    max-width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-buttons button {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #ddd;
+    transition: background-color 0.3s;
+}
+
+.tab-buttons .active {
+    background-color: #ccc;
+    font-weight: bold;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex: 1;
+    min-width: 0; /* Ensures flex items shrink correctly */
+}
+
+.form-group label {
+    width: 30%;
+    margin-bottom: 0;
+    font-weight: bold;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.form-group input,
+.form-group select {
+    width: 70%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 0; /* Remove default margin */
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+
+    .form-group label {
+        width: auto;
+        margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+    }
+}
