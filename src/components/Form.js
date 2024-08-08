@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Form.css';
 import data from '../data'; // Import the data
 import AdditionalInfo from './AdditionalInfo';
+
 const Form = () => {
     const [activeTab, setActiveTab] = useState('main');
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -21,6 +22,21 @@ const Form = () => {
         const index = parseInt(e.target.value, 10);
         setSelectedIndex(index);
         setFormData(data[index]);
+    };
+
+    // Handle save button click
+    const handleSave = () => {
+        // Add your save logic here (e.g., save data to a server)
+        console.log("Form data saved:", formData);
+
+        // Display an alert for successful update
+        alert("Successfully updated!");
+    };
+
+    // Handle cancel button click
+    const handleCancel = () => {
+        // Add your cancel logic here
+        console.log("Form data changes canceled");
     };
 
     return (
@@ -164,13 +180,18 @@ const Form = () => {
                     </div>
                 </div>
             )}
-             {activeTab === 'additionalInfo' && (
+
+            {activeTab === 'additionalInfo' && (
                 <AdditionalInfo formData={formData} handleInputChange={handleInputChange} />
             )}
 
             {/* Additional sections for other tabs */}
 
-            {/* Additional sections for other tabs */}
+            <div className="button-group">
+                <button onClick={() => setActiveTab('additionalInfo')} className="button">Additional Info</button>
+                <button onClick={handleSave} className="button">Save</button>
+                <button onClick={handleCancel} className="button">Cancel</button>
+            </div>
         </div>
     );
 };
